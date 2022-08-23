@@ -15,6 +15,7 @@ const HomePage: NextPage = () => {
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
+          className="font-nunito-bold text-dm-dark-blue"
         >
           Powered by{" Vercel"}
         </a>

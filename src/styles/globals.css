@@ -2,22 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/*html,*/
-/*body {*/
-/*  padding: 0;*/
-/*  margin: 0;*/
-/*  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,*/
-/*    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;*/
-/*}*/
+@font-face {
+    font-family: NunitoBold;
+    font-weight: 800;
+    font-display: swap;
+    src: local('Nunito Sans'), url('../../public/fonts/NunitoSans-ExtraBold.woff2') format('woff2');
+}
 
-/*a {*/
-/*  color: inherit;*/
-/*  text-decoration: none;*/
-/*}*/
+@font-face {
+    font-family: NunitoRegular;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Nunito Sans'), url('../../public/fonts/NunitoSans-SemiBold.woff2') format('woff2');
+}
 
-/** {*/
-/*  box-sizing: border-box;*/
-/*}*/
+@font-face {
+    font-family: NunitoLight;
+    font-weight: 300;
+    font-display: swap;
+    src: local('Nunito Sans'), url('../../public/fonts/NunitoSans-Light.woff2') format('woff2');
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 /*@media (prefers-color-scheme: dark) {*/
 /*  html {*/
