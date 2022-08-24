@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import CountryCard from "../components/CountryCard";
+import Dropdown from "../components/Dropdown";
+import { useState } from "react";
 
 const countryMock = {
   name: "Canada",
@@ -82,6 +84,9 @@ const countryMock = {
 };
 
 const HomePage: NextPage = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("");
+
   return (
     <>
       <Head>
@@ -94,6 +99,13 @@ const HomePage: NextPage = () => {
       </Head>
 
       <CountryCard country={countryMock} />
+      <Dropdown
+        isDropdownOpen={isDropdownOpen}
+        setIsDropdownOpen={setIsDropdownOpen}
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
+        filterArray={["Africa", "America", "Asia", "Europe", "Oceania"]}
+      />
       <footer className="flex justify-center">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
