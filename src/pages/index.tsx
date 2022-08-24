@@ -3,6 +3,7 @@ import Head from "next/head";
 import CountryCard from "../components/CountryCard";
 import Dropdown from "../components/Dropdown";
 import { useState } from "react";
+import Button from "../components/Button";
 
 const countryMock = {
   name: "Canada",
@@ -99,12 +100,19 @@ const HomePage: NextPage = () => {
       </Head>
 
       <CountryCard country={countryMock} />
+      <div className="h-3" />
       <Dropdown
         isDropdownOpen={isDropdownOpen}
         setIsDropdownOpen={setIsDropdownOpen}
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
         filterArray={["Africa", "America", "Asia", "Europe", "Oceania"]}
+      />
+      <div className="h-3" />
+      <Button
+        onClick={() => console.log("Clicked button!")}
+        shouldGoBack={true}
+        text="Back"
       />
       <footer className="flex justify-center">
         <a
