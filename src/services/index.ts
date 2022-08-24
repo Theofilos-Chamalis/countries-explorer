@@ -8,9 +8,10 @@ import {
   ICurrency,
   ILanguage,
   IRegionalBloc,
+  ContinentsType,
 } from "./countries/countries.dto";
 
-export type { ICountry, IRegionalBloc, ICurrency, ILanguage };
+export type { ICountry, IRegionalBloc, ICurrency, ILanguage, ContinentsType };
 
 export {
   getAllCountriesService,

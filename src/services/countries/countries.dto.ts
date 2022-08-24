@@ -1,3 +1,10 @@
+export type ContinentsType =
+  | "Africa"
+  | "Americas"
+  | "Asia"
+  | "Europe"
+  | "Oceania";
+
 export interface ICurrency {
   code: string;
   name: string;

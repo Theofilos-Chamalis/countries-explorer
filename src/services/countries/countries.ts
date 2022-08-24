@@ -1,6 +1,6 @@
 import { api } from "../apiClient";
 import { ApiResponse } from "apisauce";
-import { ICountry } from "./countries.dto";
+import { ContinentsType, ICountry } from "./countries.dto";
 
 export const getAllCountriesService = async () => {
   const countriesFromBE: ApiResponse<ICountry[]> = await api.get("/all");
@@ -14,9 +14,9 @@ export const getCountryByNameService = async (name: string) => {
   return countriesByNameFromBE;
 };
 
-export const getCountryByContinent = async (
-  continent: "Africa" | "America" | "Asia" | "Europe" | "Oceania"
-) => {
+export const getCountryByContinent = async (continent: ContinentsType | "") => {
+  if (!continent) return null;
+
   const countriesByContinentFromBE: ApiResponse<ICountry[]> = await api.get(
     `/region/${continent.toLowerCase()}`
   );

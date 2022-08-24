@@ -1,13 +1,14 @@
 import { FunctionComponent, useRef } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useClickAway } from "react-use";
+import { ContinentsType } from "../services";
 
 interface DropdownProps {
-  filterArray: string[];
+  filterArray: ContinentsType[];
   isDropdownOpen: boolean;
   setIsDropdownOpen: (isDropdownOpen: boolean) => void;
-  selectedFilter: string;
-  setSelectedFilter: (selectedFilter: string) => void;
+  selectedFilter: ContinentsType | "";
+  setSelectedFilter: (selectedFilter: ContinentsType | "") => void;
 }
 
 const Dropdown: FunctionComponent<DropdownProps> = ({
@@ -24,7 +25,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
     }
   });
 
-  const renderDropdownRow = (row: string, index: number) => {
+  const renderDropdownRow = (row: ContinentsType | "", index: number) => {
     return (
       <li key={index}>
         <p
