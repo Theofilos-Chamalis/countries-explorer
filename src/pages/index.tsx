@@ -5,6 +5,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import AppLayout from "../layouts/AppLayout";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import SearchInput from "../components/SearchInput";
 
 const countryMock = {
   name: "Canada",
@@ -88,7 +89,9 @@ const countryMock = {
 const HomePage: NextPage = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
+  console.log(searchValue);
   return (
     <AppLayout>
       <div className="mt-32">
@@ -107,6 +110,11 @@ const HomePage: NextPage = () => {
           icon={<HiOutlineArrowNarrowLeft size={18} />}
           text="Back"
           flat={false}
+        />
+        <div className="h-3" />
+        <SearchInput
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
         />
         <footer className="flex justify-center">
           <a
