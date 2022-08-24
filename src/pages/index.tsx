@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import CountryCard from "../components/CountryCard";
 import Dropdown from "../components/Dropdown";
 import { useState } from "react";
 import Button from "../components/Button";
+import AppLayout from "../layouts/AppLayout";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
 const countryMock = {
   name: "Canada",
@@ -89,42 +90,36 @@ const HomePage: NextPage = () => {
   const [selectedFilter, setSelectedFilter] = useState("");
 
   return (
-    <>
-      <Head>
-        <title>Countries Explorer</title>
-        <meta
-          name="description"
-          content="A next.js based frontend application that uses the REST Countries V2 API to pull and display country related information"
+    <AppLayout>
+      <div className="mt-32">
+        <CountryCard country={countryMock} />
+        <div className="h-3" />
+        <Dropdown
+          isDropdownOpen={isDropdownOpen}
+          setIsDropdownOpen={setIsDropdownOpen}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+          filterArray={["Africa", "America", "Asia", "Europe", "Oceania"]}
         />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <CountryCard country={countryMock} />
-      <div className="h-3" />
-      <Dropdown
-        isDropdownOpen={isDropdownOpen}
-        setIsDropdownOpen={setIsDropdownOpen}
-        selectedFilter={selectedFilter}
-        setSelectedFilter={setSelectedFilter}
-        filterArray={["Africa", "America", "Asia", "Europe", "Oceania"]}
-      />
-      <div className="h-3" />
-      <Button
-        onClick={() => console.log("Clicked button!")}
-        shouldGoBack={true}
-        text="Back"
-      />
-      <footer className="flex justify-center">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-nunito-bold text-dm-dark-blue"
-        >
-          Powered by{" Vercel"}
-        </a>
-      </footer>
-    </>
+        <div className="h-3" />
+        <Button
+          onClick={() => console.log("Clicked button!")}
+          icon={<HiOutlineArrowNarrowLeft size={18} />}
+          text="Back"
+          flat={false}
+        />
+        <footer className="flex justify-center">
+          <a
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-nunito-bold text-dm-dark-blue"
+          >
+            Powered by{" Vercel"}
+          </a>
+        </footer>
+      </div>
+    </AppLayout>
   );
 };
 
