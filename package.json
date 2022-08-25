@@ -6,7 +6,9 @@
     "dev": "open http://localhost:3000 && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "cypress open",
+    "test:headless": "cypress run"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.2.1",
@@ -23,6 +25,7 @@
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.8",
+    "cypress": "^10.6.0",
     "eslint": "8.22.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
