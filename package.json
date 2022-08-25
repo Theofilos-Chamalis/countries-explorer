@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "concurrently \"yarn dev\" \"cypress open\"",
-    "test:headless": "concurrently \"yarn dev\" \"cypress run\""
+    "test:headless": "concurrently \"next dev\" \"cypress run\""
   },
   "dependencies": {
     "@tanstack/react-query": "^4.2.1",
