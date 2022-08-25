@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import Image from "next/image";
 import { ICountry } from "../services";
 import { useRouter } from "next/router";
+import InfoRow from "./InfoRow";
 
 interface CountryCardProps {
   country: ICountry;
@@ -11,15 +12,6 @@ interface CountryCardProps {
 // and redirects the user to the details page when clicked
 const CountryCard: FunctionComponent<CountryCardProps> = (props) => {
   const router = useRouter();
-
-  const renderCardRow = (label: string, value: string) => {
-    return (
-      <div className="flex items-center gap-1">
-        <p className="text-sm font-nunito-regular">{label}</p>
-        <p className="text-sm font-nunito-light">{value}</p>
-      </div>
-    );
-  };
 
   return (
     <div
@@ -37,9 +29,12 @@ const CountryCard: FunctionComponent<CountryCardProps> = (props) => {
           {props.country.name}
         </p>
         <div className="flex flex-col gap-1 mb-6">
-          {renderCardRow("Population:", props.country.population.toString())}
-          {renderCardRow("Region:", props.country.region)}
-          {renderCardRow("Capital:", props.country.capital)}
+          <InfoRow
+            label="Population"
+            value={props.country.population.toString()}
+          />
+          <InfoRow label="Region" value={props.country.region} />
+          <InfoRow label="Capital" value={props.country.capital} />
         </div>
       </div>
     </div>

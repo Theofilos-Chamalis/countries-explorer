@@ -2,6 +2,7 @@ import {
   getAllCountriesService,
   getCountryByNameService,
   getCountriesByContinentService,
+  getCountryByCodeService,
 } from "./countries/countries";
 import {
   ICountry,
@@ -17,4 +18,5 @@ export {
   getAllCountriesService,
   getCountriesByContinentService,
   getCountryByNameService,
+  getCountryByCodeService,
 };

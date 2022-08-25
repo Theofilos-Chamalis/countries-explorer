@@ -24,3 +24,10 @@ export const getCountriesByContinentService = async (
   );
   return countriesByContinentFromBE;
 };
+
+export const getCountryByCodeService = async (code: string) => {
+  const countriesByCodeFromBE: ApiResponse<ICountry[]> = await api.get(
+    `/alpha/${code}`
+  );
+  return countriesByCodeFromBE;
+};
