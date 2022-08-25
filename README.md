@@ -4,10 +4,10 @@ A Next.js based frontend application that uses the REST Countries V2 API to pull
 
 ## Screenshots
 
-![Desktop Screenshot 1](https://i.imgur.com/h06vYTZl.png)
-![Desktop Screenshot 2](https://i.imgur.com/6Jn7SATl.png)
-![Mobile Screenshot 1](https://i.imgur.com/kV2TPM7l.png)
-![Mobile Screenshot 2](https://i.imgur.com/VeNaYdml.png)
+![Desktop Screenshot 1](https://i.imgur.com/9zuZFSp.png)
+![Desktop Screenshot 2](https://i.imgur.com/iIukfy7.png)
+![Mobile Screenshot 1](https://i.imgur.com/ysiQbzY.png)
+![Mobile Screenshot 2](https://i.imgur.com/aZeEC8q.png)
 
 ## Tech Stack
 
