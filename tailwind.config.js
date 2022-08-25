@@ -6,10 +6,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        xs: "375px",
-        xl: "1440px",
-      },
       colors: {
         transparent: "transparent",
         "dm-dark-blue": "hsl(209, 23%, 22%)",

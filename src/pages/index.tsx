@@ -17,12 +17,12 @@ const HomePage: NextPage = () => {
   const [selectedFilter, setSelectedFilter] = useState<ContinentsType | "">("");
   const [searchValue, setSearchValue] = useState("");
   const {
-    fetchStatus: isLoadingAllCountries,
+    fetchStatus: fetchStatusAllCountries,
     error: errorAllCountries,
     data: dataAllCountries,
   } = useQuery(["all-countries"], () => getAllCountriesService());
   const {
-    fetchStatus: isLoadingCountriesByRegion,
+    fetchStatus: fetchStatusCountriesByRegion,
     error: errorCountriesByRegion,
     data: dataCountriesByRegion,
   } = useQuery(
@@ -33,8 +33,8 @@ const HomePage: NextPage = () => {
 
   const renderCountryCards = () => {
     if (
-      isLoadingAllCountries === "fetching" ||
-      isLoadingCountriesByRegion === "fetching"
+      fetchStatusAllCountries === "fetching" ||
+      fetchStatusCountriesByRegion === "fetching"
     ) {
       return <Loading />;
     }
@@ -69,7 +69,7 @@ const HomePage: NextPage = () => {
     }
 
     return (
-      <div className="grid grid-cols-4 gap-14">
+      <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-14 gap-x-32 w-full sm:justify-items-center">
         {filteredCountries.map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
@@ -79,35 +79,33 @@ const HomePage: NextPage = () => {
 
   return (
     <AppLayout>
-      <div className="mt-32">
-        <>
-          <div className="flex justify-between mb-10">
-            <SearchInput
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-            />
-            <Dropdown
-              isDropdownOpen={isDropdownOpen}
-              setIsDropdownOpen={setIsDropdownOpen}
-              selectedFilter={selectedFilter}
-              setSelectedFilter={setSelectedFilter}
-              filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
-            />
-          </div>
-          {renderCountryCards()}
+      <main className="mt-32 px-32">
+        <div className="flex justify-between mb-10">
+          <SearchInput
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+          <Dropdown
+            isDropdownOpen={isDropdownOpen}
+            setIsDropdownOpen={setIsDropdownOpen}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+          />
+        </div>
+        {renderCountryCards()}
 
-          {/*<div className="h-3" />*/}
+        {/*<div className="h-3" />*/}
 
-          {/*<div className="h-3" />*/}
-          {/*<Button*/}
-          {/*  onClick={() => console.log("Clicked button!")}*/}
-          {/*  icon={<HiOutlineArrowNarrowLeft size={18} />}*/}
-          {/*  text="Back"*/}
-          {/*  flat={false}*/}
-          {/*/>*/}
-          {/*<div className="h-3" />*/}
-        </>
-      </div>
+        {/*<div className="h-3" />*/}
+        {/*<Button*/}
+        {/*  onClick={() => console.log("Clicked button!")}*/}
+        {/*  icon={<HiOutlineArrowNarrowLeft size={18} />}*/}
+        {/*  text="Back"*/}
+        {/*  flat={false}*/}
+        {/*/>*/}
+        {/*<div className="h-3" />*/}
+      </main>
     </AppLayout>
   );
 };

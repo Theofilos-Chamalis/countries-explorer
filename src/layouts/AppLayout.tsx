@@ -18,7 +18,7 @@ const AppLayout: FunctionComponent<AppLayoutProps> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="px-20">{children}</main>
+      {children}
     </>
   );
 };
