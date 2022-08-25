@@ -14,11 +14,20 @@ export const getCountryByNameService = async (name: string) => {
   return countriesByNameFromBE;
 };
 
-export const getCountryByContinent = async (continent: ContinentsType | "") => {
+export const getCountriesByContinentService = async (
+  continent: ContinentsType | ""
+) => {
   if (!continent) return null;
 
   const countriesByContinentFromBE: ApiResponse<ICountry[]> = await api.get(
     `/region/${continent.toLowerCase()}`
   );
   return countriesByContinentFromBE;
+};
+
+export const getCountryByCodeService = async (code: string) => {
+  const countriesByCodeFromBE: ApiResponse<ICountry[]> = await api.get(
+    `/alpha/${code}`
+  );
+  return countriesByCodeFromBE;
 };

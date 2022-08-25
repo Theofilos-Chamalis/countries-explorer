@@ -1,7 +1,8 @@
 import {
   getAllCountriesService,
   getCountryByNameService,
-  getCountryByContinent,
+  getCountriesByContinentService,
+  getCountryByCodeService,
 } from "./countries/countries";
 import {
   ICountry,
@@ -15,6 +16,7 @@ export type { ICountry, IRegionalBloc, ICurrency, ILanguage, ContinentsType };
 
 export {
   getAllCountriesService,
-  getCountryByContinent,
+  getCountriesByContinentService,
   getCountryByNameService,
+  getCountryByCodeService,
 };
