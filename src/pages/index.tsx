@@ -16,7 +16,9 @@ const HomePage: NextPage = () => {
   const [selectedFilter, setSelectedFilter] = useState<ContinentsType | "">("");
   const [searchValue, setSearchValue] = useState("");
   // Fetch all countries using React-Query and the getAllCountriesService service when
-  // the component/page mounts.
+  // the component/page mounts. This approach is used to showcase CSR (Client Side Rendering)
+  // and handling of errors/loading states. Also, react-query is configured to refetch from the
+  // API when the window is refocused which might be useful in some cases.
   const {
     fetchStatus: fetchStatusAllCountries,
     error: errorAllCountries,
@@ -31,7 +33,7 @@ const HomePage: NextPage = () => {
   } = useQuery(
     ["countries-by-region", selectedFilter],
     () => getCountriesByContinentService(selectedFilter),
-    { enabled: !!selectedFilter }
+    { enabled: !!selectedFilter && selectedFilter !== "Show All" }
   );
 
   // Function which renders the countries card grid and handles cases
@@ -57,9 +59,10 @@ const HomePage: NextPage = () => {
       );
     }
 
-    const countriesFromApi = selectedFilter
-      ? dataCountriesByRegion?.data
-      : dataAllCountries?.data;
+    const countriesFromApi =
+      selectedFilter && selectedFilter !== "Show All"
+        ? dataCountriesByRegion?.data
+        : dataAllCountries?.data;
 
     const filteredCountries = countriesFromApi?.filter((country) =>
       country.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -83,8 +86,8 @@ const HomePage: NextPage = () => {
   };
 
   return (
-    <main className="mt-32 px-32">
-      <div className="flex justify-between mb-10">
+    <main className="mt-20 md:mt-32 px-8 md:px-32 mb-12 md:mb-0">
+      <div className="flex justify-between flex-col md:flex-row gap-8 md:gap-1 mb-10">
         <SearchInput
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -94,7 +97,14 @@ const HomePage: NextPage = () => {
           setIsDropdownOpen={setIsDropdownOpen}
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
-          filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+          filterArray={[
+            "Africa",
+            "Americas",
+            "Asia",
+            "Europe",
+            "Oceania",
+            "Show All",
+          ]}
         />
       </div>
       {renderCountryCards()}

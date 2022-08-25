@@ -15,7 +15,7 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({
       <label htmlFor="simple-search" className="sr-only">
         Search for a country...
       </label>
-      <div className="relative md:w-96 sm:w-fit">
+      <div className="relative w-full md:w-96">
         <div className="flex absolute inset-y-0 left-0 items-center pl-5 pointer-events-none">
           <HiOutlineSearch size={18} />
         </div>
