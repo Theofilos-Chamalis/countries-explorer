@@ -45,7 +45,10 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
     <div ref={dropdownRef} className="w-fit">
       <button
         id="dropdownDefault"
-        className="flex z-10 justify-between w-44 shadow-md text-lm-very-dark-blue bg-dmlm-white hover:bg-lm-very-light-gray focus:outline-none font-nunito-regular rounded-md text-sm pl-4 pr-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="flex z-10 justify-between w-44 shadow-md text-lm-very-dark-blue bg-dmlm-white
+        hover:bg-lm-very-light-gray focus:outline-none font-nunito-regular rounded-md text-sm pl-4
+        pr-2 py-2.5 text-center inline-flex items-center dark:bg-dm-dark-blue dark:hover:bg-dm-very-dark-blue
+        dark:text-dmlm-white"
         type="button"
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
@@ -58,10 +61,12 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
         id="dropdown"
         className={`${
           !isDropdownOpen ? "hidden" : ""
-        } z-10 w-44 bg-white rounded-md divide-y mt-1 divide-gray-100 shadow-md dark:bg-gray-700 absolute`}
+        } z-10 w-44 bg-white rounded-md divide-y mt-1 divide-gray-100 shadow-md dark:bg-dm-dark-blue 
+        dark:text-dmlm-white absolute`}
       >
         <ul
-          className="py-1 text-sm font-nunito-regular text-lm-very-dark-blue dark:text-gray-200"
+          className="py-1 text-sm font-nunito-regular text-lm-very-dark-blue dark:bg-dm-dark-blue
+          dark:text-dmlm-white"
           aria-label="Filter by Region Dropdown"
         >
           {filterArray.map((row, index) => renderDropdownRow(row, index))}

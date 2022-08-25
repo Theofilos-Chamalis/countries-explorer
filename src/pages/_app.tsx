@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppLayout from "../layouts/AppLayout";
+import { ThemeProvider } from "next-themes";
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
@@ -11,9 +12,11 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
+      <ThemeProvider attribute="class">
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

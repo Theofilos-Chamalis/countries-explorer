@@ -15,7 +15,8 @@ const AppLayout: FunctionComponent<AppLayoutProps> = ({ children }) => {
         <title>Countries Explorer</title>
         <meta
           name="description"
-          content="A next.js based frontend application that uses the REST Countries V2 API to pull and display country related information"
+          content="A next.js based frontend application that uses the REST Countries V2 API to pull and
+          display country related information"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

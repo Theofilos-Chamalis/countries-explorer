@@ -139,9 +139,14 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
         </p>
         <div>
           {borderCountriesNames.map((border, index) => {
+            // The button below is styled differently to the <Button/> component in the components folder
+            // in order to look more like a clickable tag.
             return (
               <button
-                className="border border-gray-300 mr-2 mt-2 text-lm-very-dark-blue shadow-none font-nunito-light bg-dmlm-white hover:bg-lm-very-light-gray rounded-md text-sm px-4 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none"
+                className="border border-gray-300 mr-2 mt-2 2xl:mt-0 text-lm-very-dark-blue shadow-none
+                font-nunito-light bg-dmlm-white hover:bg-lm-very-light-gray rounded-md text-sm
+                 px-4 py-1 focus:outline-none dark:bg-dm-dark-blue dark:hover:bg-dm-very-dark-blue
+                 dark:text-dmlm-white dark:border-black"
                 onClick={() => router.push(`/details?countryName=${border}`)}
               >
                 {border}
@@ -154,7 +159,10 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
   };
 
   return (
-    <main className="mt-20 md:mt-32 px-8 md:px-32 mb-12 md:mb-0">
+    <main
+      className="pt-20 md:pt-32 px-8 md:px-32 pb-12 md:pb-0 bg-dmlm-white dark:bg-dm-very-dark-blue
+       min-h-screen"
+    >
       <Button
         text="Back"
         onClick={() => router.back()}
