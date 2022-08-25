@@ -77,7 +77,10 @@ const HomePage: NextPage = () => {
     }
 
     return (
-      <div className="grid 3xl:grid-cols-6 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-14 gap-x-32 w-full sm:justify-items-center">
+      <div
+        className="grid 3xl:grid-cols-6 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1
+       gap-y-14 gap-x-32 w-full sm:justify-items-center"
+      >
         {filteredCountries.map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
@@ -86,7 +89,7 @@ const HomePage: NextPage = () => {
   };
 
   return (
-    <main className="mt-20 md:mt-32 px-8 md:px-32 mb-12 md:mb-0">
+    <main className="pt-16 md:pt-32 px-8 md:px-32 pb-12 md:pb-0 min-h-screen bg-dmlm-white dark:bg-dm-very-dark-blue">
       <div className="flex justify-between flex-col md:flex-row gap-8 md:gap-1 mb-10">
         <SearchInput
           searchValue={searchValue}

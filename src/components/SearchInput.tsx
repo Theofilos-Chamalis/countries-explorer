@@ -22,7 +22,9 @@ const SearchInput: FunctionComponent<SearchInputProps> = ({
         <input
           type="text"
           id="simple-search"
-          className="bg-dmlm-white shadow-md text-lm-very-dark-blue text-sm font-nunito-light rounded-md focus:outline-none block w-full pl-14 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          className="bg-dmlm-white shadow-md text-lm-very-dark-blue text-sm font-nunito-light rounded-md
+           focus:outline-none block w-full pl-14 p-2.5 dark:bg-dm-dark-blue dark:border-gray-800
+           dark:placeholder-dmlm-white dark:text-dmlm-white"
           placeholder="Search for a country..."
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
