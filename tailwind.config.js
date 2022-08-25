@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "3xl": "2020px",
+      },
       colors: {
         transparent: "transparent",
         "dm-dark-blue": "hsl(209, 23%, 22%)",

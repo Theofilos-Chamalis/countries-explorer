@@ -69,7 +69,7 @@ const HomePage: NextPage = () => {
     }
 
     return (
-      <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-14 gap-x-32 w-full sm:justify-items-center">
+      <div className="grid 3xl:grid-cols-6 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-14 gap-x-32 w-full sm:justify-items-center">
         {filteredCountries.map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
