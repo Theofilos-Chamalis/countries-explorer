@@ -1,12 +1,17 @@
 import { FunctionComponent } from "react";
 import Image from "next/image";
 import { ICountry } from "../services";
+import { useRouter } from "next/router";
 
 interface CountryCardProps {
   country: ICountry;
 }
 
+// Card component that displays the country information in the home page
+// and redirects the user to the details page when clicked
 const CountryCard: FunctionComponent<CountryCardProps> = (props) => {
+  const router = useRouter();
+
   const renderCardRow = (label: string, value: string) => {
     return (
       <div className="flex items-center gap-1">
@@ -17,7 +22,10 @@ const CountryCard: FunctionComponent<CountryCardProps> = (props) => {
   };
 
   return (
-    <div className="max-w-xs rounded-md overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer">
+    <div
+      className="max-w-xs rounded-md overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer"
+      onClick={() => router.push(`/details?countryName=${props.country.name}`)}
+    >
       <Image
         width={600}
         height={280}

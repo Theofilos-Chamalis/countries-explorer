@@ -6,6 +6,8 @@ interface AppLayoutProps {
   children: ReactElement;
 }
 
+// Basic layout wrapper for the app, which includes the navbar, the head (for including meta tags),
+// and the children pages which it wraps.
 const AppLayout: FunctionComponent<AppLayoutProps> = ({ children }) => {
   return (
     <>

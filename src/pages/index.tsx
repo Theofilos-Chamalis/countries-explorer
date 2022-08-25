@@ -2,13 +2,12 @@ import type { NextPage } from "next";
 import CountryCard from "../components/CountryCard";
 import Dropdown from "../components/Dropdown";
 import { useState } from "react";
-import AppLayout from "../layouts/AppLayout";
 import SearchInput from "../components/SearchInput";
 import { useQuery } from "@tanstack/react-query";
 import {
   ContinentsType,
   getAllCountriesService,
-  getCountryByContinent,
+  getCountriesByContinentService,
 } from "../services";
 import Loading from "../components/Loading";
 
@@ -16,21 +15,27 @@ const HomePage: NextPage = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<ContinentsType | "">("");
   const [searchValue, setSearchValue] = useState("");
+  // Fetch all countries using React-Query and the getAllCountriesService service when
+  // the component/page mounts.
   const {
     fetchStatus: fetchStatusAllCountries,
     error: errorAllCountries,
     data: dataAllCountries,
   } = useQuery(["all-countries"], () => getAllCountriesService());
+  // Fetch all countries by region/continent using React-Query and the getCountriesByContinentService service when
+  // there is a filter selected from the Dropdown component.
   const {
     fetchStatus: fetchStatusCountriesByRegion,
     error: errorCountriesByRegion,
     data: dataCountriesByRegion,
   } = useQuery(
     ["countries-by-region", selectedFilter],
-    () => getCountryByContinent(selectedFilter),
+    () => getCountriesByContinentService(selectedFilter),
     { enabled: !!selectedFilter }
   );
 
+  // Function which renders the countries card grid and handles cases
+  // where there is no data, an error, or the API calls are loading.
   const renderCountryCards = () => {
     if (
       fetchStatusAllCountries === "fetching" ||
@@ -78,35 +83,22 @@ const HomePage: NextPage = () => {
   };
 
   return (
-    <AppLayout>
-      <main className="mt-32 px-32">
-        <div className="flex justify-between mb-10">
-          <SearchInput
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
-          <Dropdown
-            isDropdownOpen={isDropdownOpen}
-            setIsDropdownOpen={setIsDropdownOpen}
-            selectedFilter={selectedFilter}
-            setSelectedFilter={setSelectedFilter}
-            filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
-          />
-        </div>
-        {renderCountryCards()}
-
-        {/*<div className="h-3" />*/}
-
-        {/*<div className="h-3" />*/}
-        {/*<Button*/}
-        {/*  onClick={() => console.log("Clicked button!")}*/}
-        {/*  icon={<HiOutlineArrowNarrowLeft size={18} />}*/}
-        {/*  text="Back"*/}
-        {/*  flat={false}*/}
-        {/*/>*/}
-        {/*<div className="h-3" />*/}
-      </main>
-    </AppLayout>
+    <main className="mt-32 px-32">
+      <div className="flex justify-between mb-10">
+        <SearchInput
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+        <Dropdown
+          isDropdownOpen={isDropdownOpen}
+          setIsDropdownOpen={setIsDropdownOpen}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+          filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+        />
+      </div>
+      {renderCountryCards()}
+    </main>
   );
 };
 
