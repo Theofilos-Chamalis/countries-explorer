@@ -42,7 +42,9 @@ export const getServerSideProps = async (
   const notFound =
     !countryData || countryData?.ok === false || !countryData?.data;
 
-  // Retrieve the country codes for the countries that border the country we are looking at
+  // Retrieve the country codes for the countries that border the country we are looking at. We do this
+  // since the API does not provide the country names for the countries that border the country we are
+  // looking at, so we need to make additional API calls (in parallel) to retrieve their names.
   const borderCountriesCodes =
     countryData?.data && !notFound && countryData?.data[0]?.borders?.length > 0
       ? countryData?.data[0].borders.map((borderCountry) => borderCountry)
