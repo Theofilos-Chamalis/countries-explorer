@@ -49,7 +49,9 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
         type="button"
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
-        {selectedFilter ? selectedFilter : "Filter by Region"}
+        {selectedFilter && selectedFilter !== "Show All"
+          ? selectedFilter
+          : "Filter by Region"}
         <MdOutlineKeyboardArrowDown />
       </button>
       <div

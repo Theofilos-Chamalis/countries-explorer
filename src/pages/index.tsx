@@ -31,7 +31,7 @@ const HomePage: NextPage = () => {
   } = useQuery(
     ["countries-by-region", selectedFilter],
     () => getCountriesByContinentService(selectedFilter),
-    { enabled: !!selectedFilter }
+    { enabled: !!selectedFilter && selectedFilter !== "Show All" }
   );
 
   // Function which renders the countries card grid and handles cases
@@ -57,9 +57,10 @@ const HomePage: NextPage = () => {
       );
     }
 
-    const countriesFromApi = selectedFilter
-      ? dataCountriesByRegion?.data
-      : dataAllCountries?.data;
+    const countriesFromApi =
+      selectedFilter && selectedFilter !== "Show All"
+        ? dataCountriesByRegion?.data
+        : dataAllCountries?.data;
 
     const filteredCountries = countriesFromApi?.filter((country) =>
       country.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -94,7 +95,14 @@ const HomePage: NextPage = () => {
           setIsDropdownOpen={setIsDropdownOpen}
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
-          filterArray={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+          filterArray={[
+            "Africa",
+            "Americas",
+            "Asia",
+            "Europe",
+            "Oceania",
+            "Show All",
+          ]}
         />
       </div>
       {renderCountryCards()}
