@@ -75,3 +75,6 @@ yarn-error.log*
 
 # typescript incremental builds
 tsconfig.tsbuildinfo
+
+# Cypress videos
+cypress/videos

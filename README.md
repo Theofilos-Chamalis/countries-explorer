@@ -11,7 +11,7 @@ A Next.js based frontend application that uses the REST Countries V2 API to pull
 
 ## Tech Stack
 
-**Client:** Next.js, React, Typescript, Tailwindcss, React-Query, React-Icons, ApiSauce
+Next.js, React, Typescript, Tailwindcss, React-Query, React-Icons, ApiSauce, Cypress
 
 ## Install & Run Locally
 
