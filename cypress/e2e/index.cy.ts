@@ -51,3 +51,5 @@ describe("Filtering based on region", () => {
     cy.contains("Albania").should("not.exist");
   });
 });
+
+export default {};
