@@ -16,7 +16,9 @@ const HomePage: NextPage = () => {
   const [selectedFilter, setSelectedFilter] = useState<ContinentsType | "">("");
   const [searchValue, setSearchValue] = useState("");
   // Fetch all countries using React-Query and the getAllCountriesService service when
-  // the component/page mounts.
+  // the component/page mounts. This approach is used to showcase CSR (Client Side Rendering)
+  // and handling of errors/loading states. Also, react-query is configured to refetch from the
+  // API when the window is refocused which might be useful in some cases.
   const {
     fetchStatus: fetchStatusAllCountries,
     error: errorAllCountries,
@@ -84,8 +86,8 @@ const HomePage: NextPage = () => {
   };
 
   return (
-    <main className="mt-32 px-32">
-      <div className="flex justify-between mb-10">
+    <main className="mt-20 md:mt-32 px-8 md:px-32 mb-12 md:mb-0">
+      <div className="flex justify-between flex-col md:flex-row gap-8 md:gap-1 mb-10">
         <SearchInput
           searchValue={searchValue}
           setSearchValue={setSearchValue}
