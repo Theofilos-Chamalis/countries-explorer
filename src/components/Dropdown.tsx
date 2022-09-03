@@ -27,7 +27,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
 
   const renderDropdownRow = (row: ContinentsType | "", index: number) => {
     return (
-      <li key={index}>
+      <li key={index + row}>
         <p
           className="block py-2 px-4 cursor-pointer hover:bg-lm-very-light-gray dark:hover:bg-gray-600 dark:hover:text-white"
           onClick={() => {
