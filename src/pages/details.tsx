@@ -114,7 +114,12 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
       <div className="flex flex-col md:flex-row gap-10 md:gap-4 mb-6">
         <div className="flex flex-col gap-1">
           <InfoRow label="Native Name" value={nativeName} />
-          <InfoRow label="Population" value={population.toString()} />
+          <InfoRow
+            label="Population"
+            value={
+              population ? new Intl.NumberFormat().format(population) : "0"
+            }
+          />
           <InfoRow label="Region" value={region} />
           <InfoRow label="Sub Region" value={subRegionsString} />
           <InfoRow label="Capital" value={capital} />
