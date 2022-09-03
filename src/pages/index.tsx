@@ -10,6 +10,7 @@ import {
   getCountriesByContinentService,
 } from "../services";
 import Loading from "../components/Loading";
+import LazyLoad from "react-lazy-load";
 
 const HomePage: NextPage = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -82,7 +83,9 @@ const HomePage: NextPage = () => {
        gap-y-14 gap-x-32 w-full sm:justify-items-center"
       >
         {filteredCountries.map((country, index) => (
-          <CountryCard key={index} country={country} />
+          <LazyLoad key={index + country.capital}>
+            <CountryCard key={index} country={country} />
+          </LazyLoad>
         ))}
       </div>
     );
