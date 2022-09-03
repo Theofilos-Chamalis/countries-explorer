@@ -172,6 +172,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
         <div className="w-full md:w-2/5">
           <Image
             src={flags?.svg || ""}
+            className={"rounded-xl"}
             width={500}
             height={350}
             layout={"responsive"}

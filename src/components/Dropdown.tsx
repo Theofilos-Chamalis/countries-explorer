@@ -45,8 +45,8 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
     <div ref={dropdownRef} className="w-fit">
       <button
         id="dropdownDefault"
-        className="flex z-10 justify-between w-44 shadow-md text-lm-very-dark-blue bg-dmlm-white
-        hover:bg-lm-very-light-gray focus:outline-none font-nunito-regular rounded-md text-sm pl-4
+        className="flex z-10 justify-between w-44 shadow-md text-lm-very-dark-blue bg-dmlm-white border
+        border-gray-100 dark:border-gray-800 hover:bg-lm-very-light-gray focus:outline-none font-nunito-regular rounded-md text-sm pl-4
         pr-2 py-2.5 text-center inline-flex items-center dark:bg-dm-dark-blue dark:hover:bg-dm-very-dark-blue
         dark:text-dmlm-white"
         type="button"
