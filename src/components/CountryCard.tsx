@@ -29,7 +29,14 @@ const CountryCard: FunctionComponent<CountryCardProps> = ({ country }) => {
           {country.name}
         </p>
         <div className="flex flex-col gap-1 mb-6">
-          <InfoRow label="Population" value={country.population.toString()} />
+          <InfoRow
+            label="Population"
+            value={
+              country.population
+                ? new Intl.NumberFormat().format(country.population)
+                : "0"
+            }
+          />
           <InfoRow label="Region" value={country.region} />
           <InfoRow label="Capital" value={country.capital} />
         </div>
