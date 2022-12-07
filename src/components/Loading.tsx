@@ -19,6 +19,7 @@ const Loading: FunctionComponent = () => {
           width={240}
           height={240}
           alt="loading-icon"
+          priority={true}
         />
       )}
       {usesWebkit && (
