@@ -182,6 +182,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
             width={500}
             height={350}
             layout={"responsive"}
+            priority={true}
           />
         </div>
         <div className="flex flex-col justify-center w-full mt-8 md:mt-0 md:w-1/2">
