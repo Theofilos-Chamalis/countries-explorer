@@ -176,6 +176,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({
       <div className="mt-12 md:mt-20 w-full flex md:justify-between flex-col md:flex-row">
         <div className="w-full md:w-2/5">
           <Image
+            alt={"Flag of " + name}
             src={flags?.svg || ""}
             className={"rounded-xl"}
             width={500}

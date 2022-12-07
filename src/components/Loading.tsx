@@ -14,7 +14,12 @@ const Loading: FunctionComponent = () => {
   return (
     <div className="flex h-screen w-full justify-center items-center -mt-32">
       {usesWebkit === false && (
-        <Image src={"/loading-animated.svg"} width={240} height={240} />
+        <Image
+          src={"/loading-animated.svg"}
+          width={240}
+          height={240}
+          alt="loading-icon"
+        />
       )}
       {usesWebkit && (
         <object data={"/loading-animated.svg"} width={240} height={240} />
