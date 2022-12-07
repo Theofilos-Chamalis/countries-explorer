@@ -16,7 +16,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
     dark:bg-dm-dark-blue dark:border-gray-800"
     >
       <div className="flex justify-between pl-8 md:px-32">
-        <Link href="/">
+        <Link href="/" className="flex">
           <span
             className="self-center text-sm md:text-xl font-nunito-bold text-lm-very-dark-blue
            whitespace-nowrap cursor-pointer dark:text-dmlm-white"

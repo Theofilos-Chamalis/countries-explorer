@@ -18,14 +18,17 @@ const CountryCard: FunctionComponent<CountryCardProps> = ({ country }) => {
       className="max-w-xs rounded-md overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer"
       onClick={() => router.push(`/details?countryName=${country.name}`)}
     >
-      <Image
-        width={600}
-        height={280}
-        src={country.flags.png || ""}
-        alt={country.name + " flag"}
-        priority={true}
-      ></Image>
-      <div className="px-4 py-4">
+      <div className={"sm:h-[200px] 2xl:h-[180px] sm:w-[300px]"}>
+        <Image
+          width={600}
+          height={400}
+          className={"w-full h-full object-cover"}
+          src={country.flags.png || ""}
+          alt={country.name + " flag"}
+          priority={true}
+        />
+      </div>
+      <div className="px-4 pt-6">
         <p className="font-nunito-bold text-base mb-2 text-lm-very-dark-blue dark:text-dmlm-white">
           {country.name}
         </p>
