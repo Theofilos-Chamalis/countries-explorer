@@ -3,14 +3,14 @@ import {
   getCountryByNameService,
   getCountriesByContinentService,
   getCountryByCodeService,
-} from "./countries/countries";
+} from './countries/countries';
 import {
   ICountry,
   ICurrency,
   ILanguage,
   IRegionalBloc,
   ContinentsType,
-} from "./countries/countries.dto";
+} from './countries/countries.dto';
 
 export type { ICountry, IRegionalBloc, ICurrency, ILanguage, ContinentsType };
 

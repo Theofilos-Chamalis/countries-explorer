@@ -1,10 +1,4 @@
-export type ContinentsType =
-  | "Africa"
-  | "Americas"
-  | "Asia"
-  | "Europe"
-  | "Oceania"
-  | "Show All";
+export type ContinentsType = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania' | 'Show All';
 
 export interface ICurrency {
   code: string;
