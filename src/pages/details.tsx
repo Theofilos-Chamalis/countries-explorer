@@ -96,8 +96,8 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
     const languagesString = transformArrayToString(languages);
 
     return (
-      <div className='flex flex-col md:flex-row gap-10 md:gap-4 mb-6'>
-        <div className='flex flex-col gap-1'>
+      <div className='flex flex-col xl:flex-row gap-2 xl:gap-10 mb-6'>
+        <div className='flex flex-col gap-2'>
           <InfoRow label='Native Name' value={nativeName} />
           <InfoRow
             label='Population'
@@ -107,7 +107,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
           <InfoRow label='Sub Region' value={subRegionsString} />
           <InfoRow label='Capital' value={capital} />
         </div>
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col gap-2 pt-6 xl:pt-0'>
           <InfoRow label='Top Level Domain' value={topLevelDomain[0]} />
           <InfoRow label='Currencies' value={currenciesString} />
           <InfoRow label='Languages' value={languagesString} />
@@ -121,15 +121,15 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
       return <InfoRow label='Border Countries' value={'None'} />;
 
     return (
-      <div className='flex flex-col md:flex-row items-start md:items-center gap-1'>
-        <p className='text-sm font-nunito-regular mr-2 whitespace-nowrap'>Border Countries:</p>
-        <div>
+      <div className='flex flex-row items-start pt-4 w-[240px] xl:w-[528px]'>
+        <p className='text-sm font-nunito-regular whitespace-nowrap'>Border Countries:</p>
+        <div className='text-end'>
           {borderCountriesNames.map((border, index) => {
             // The button below is styled differently to the <Button/> component in the components folder
             // in order to look more like a clickable tag.
             return (
               <button
-                className='border border-gray-300 mr-2 mt-2 2xl:mt-0 text-lm-very-dark-blue shadow-none
+                className='border border-gray-300 xl:mr-2 mb-2 2xl:mt-0 text-lm-very-dark-blue shadow-none
                 font-nunito-light bg-dmlm-white hover:bg-lm-very-light-gray rounded-md text-sm
                  px-4 py-1 focus:outline-none dark:bg-dm-dark-blue dark:hover:bg-dm-very-dark-blue
                  dark:text-dmlm-white dark:border-black'
@@ -157,10 +157,9 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
           <Image
             alt={'Flag of ' + name}
             src={flags?.svg || ''}
-            className={'rounded-xl'}
+            className={'rounded-xl aspect-video'}
             width={500}
             height={350}
-            layout={'responsive'}
             priority={true}
           />
         </div>
