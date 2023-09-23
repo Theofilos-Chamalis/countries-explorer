@@ -157,7 +157,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
           <Image
             alt={'Flag of ' + name}
             src={flags?.svg || ''}
-            className={'rounded-xl aspect-video'}
+            className={'rounded-xl aspect-video object-cover'}
             width={500}
             height={350}
             priority={true}
