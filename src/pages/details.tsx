@@ -119,9 +119,8 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
   const renderBorders = () => {
     if (!borderCountriesNames || borderCountriesNames.length === 0)
       return <InfoRow label='Border Countries' value={'None'} />;
-    //w-[240px] xl:w-[528px]
     return (
-      <div className='flex flex-row items-start pt-4 max-w-[500px] xl:max-w-[528px]'>
+      <div className='flex flex-row items-start pt-4 max-w-[500px] xl:max-w-[520px]'>
         <p className='text-sm font-nunito-regular whitespace-nowrap pe-4'>Border Countries:</p>
         <div className='text-end'>
           {borderCountriesNames.map((border, index) => {
@@ -163,8 +162,8 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
             priority={true}
           />
         </div>
-        <div className='flex flex-col justify-center w-full mt-8 xl:mt-0 xl:w-1/2'>
-          <h1 className='text-2xl font-nunito-bold mb-6 md:mb-8'>{name}</h1>
+        <div className='flex flex-col justify-center w-full mt-8 xl:mt-0 xl:items-end'>
+          <h1 className='text-2xl xl:w-[520px] font-nunito-bold mb-6 md:mb-8'>{name}</h1>
           {renderCountryInfo()}
           {renderBorders()}
         </div>
