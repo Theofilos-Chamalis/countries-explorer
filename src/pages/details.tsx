@@ -119,17 +119,17 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
   const renderBorders = () => {
     if (!borderCountriesNames || borderCountriesNames.length === 0)
       return <InfoRow label='Border Countries' value={'None'} />;
-
+    //w-[240px] xl:w-[528px]
     return (
-      <div className='flex flex-row items-start pt-4 w-[240px] xl:w-[528px]'>
-        <p className='text-sm font-nunito-regular whitespace-nowrap'>Border Countries:</p>
+      <div className='flex flex-row items-start pt-4 max-w-[500px] xl:max-w-[528px]'>
+        <p className='text-sm font-nunito-regular whitespace-nowrap pe-4'>Border Countries:</p>
         <div className='text-end'>
           {borderCountriesNames.map((border, index) => {
             // The button below is styled differently to the <Button/> component in the components folder
             // in order to look more like a clickable tag.
             return (
               <button
-                className='border border-gray-300 xl:mr-2 mb-2 2xl:mt-0 text-lm-very-dark-blue shadow-none
+                className='border border-gray-300 xl:mr-2 mb-2 text-lm-very-dark-blue shadow-none
                 font-nunito-light bg-dmlm-white hover:bg-lm-very-light-gray rounded-md text-sm
                  px-4 py-1 focus:outline-none dark:bg-dm-dark-blue dark:hover:bg-dm-very-dark-blue
                  dark:text-dmlm-white dark:border-black'
@@ -152,8 +152,8 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
         onClick={() => router.back()}
         icon={<HiOutlineArrowNarrowLeft size={18} />}
       />
-      <div className='mt-12 md:mt-20 w-full flex md:justify-between flex-col md:flex-row'>
-        <div className='w-full md:w-2/5'>
+      <div className='mt-12 xl:mt-20 w-full flex xl:justify-between flex-col xl:flex-row'>
+        <div className='w-full xl:w-2/5'>
           <Image
             alt={'Flag of ' + name}
             src={flags?.svg || ''}
@@ -163,7 +163,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ countryInfo, borderCountriesN
             priority={true}
           />
         </div>
-        <div className='flex flex-col justify-center w-full mt-8 md:mt-0 md:w-1/2'>
+        <div className='flex flex-col justify-center w-full mt-8 xl:mt-0 xl:w-1/2'>
           <h1 className='text-2xl font-nunito-bold mb-6 md:mb-8'>{name}</h1>
           {renderCountryInfo()}
           {renderBorders()}

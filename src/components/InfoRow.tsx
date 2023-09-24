@@ -7,7 +7,7 @@ interface InfoRowProps {
 
 const InfoRow: FunctionComponent<InfoRowProps> = ({ label, value }) => {
   return (
-    <div className='flex gap-4 w-[240px] justify-between'>
+    <div className='flex gap-4 max-w-[500px] xl:w-[240px] justify-between'>
       <p className='text-sm font-nunito-regular text-lm-very-dark-blue dark:text-dmlm-white whitespace-nowrap'>
         {label}:
       </p>
