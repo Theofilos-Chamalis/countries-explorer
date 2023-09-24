@@ -18,7 +18,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
         <Link href='/' className='flex'>
           <span
             className='self-center text-sm md:text-xl font-nunito-bold text-lm-very-dark-blue
-           whitespace-nowrap cursor-pointer dark:text-dmlm-white'>
+           whitespace-nowrap cursor-pointer dark:text-dmlm-white focus:ring-2'>
             Where in the world?
           </span>
         </Link>
