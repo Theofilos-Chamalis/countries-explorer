@@ -24,18 +24,18 @@ const HomePage: NextPage = () => {
     fetchStatus: fetchStatusAllCountries,
     error: errorAllCountries,
     data: dataAllCountries,
-  } = useQuery(['all-countries'], () => getAllCountriesService());
+  } = useQuery({ queryKey: ['all-countries'], queryFn: () => getAllCountriesService() });
   // Fetch all countries by region/continent using React-Query and the getCountriesByContinentService service when
   // there is a filter selected from the Dropdown component.
   const {
     fetchStatus: fetchStatusCountriesByRegion,
     error: errorCountriesByRegion,
     data: dataCountriesByRegion,
-  } = useQuery(
-    ['countries-by-region', selectedFilter],
-    () => getCountriesByContinentService(selectedFilter),
-    { enabled: !!selectedFilter && selectedFilter !== 'Show All' },
-  );
+  } = useQuery({
+    queryKey: ['countries-by-region', selectedFilter],
+    queryFn: () => getCountriesByContinentService(selectedFilter),
+    enabled: !!selectedFilter && selectedFilter !== 'Show All',
+  });
 
   // Function which renders the countries card grid and handles cases
   // where there is no data, an error, or the API calls are loading.

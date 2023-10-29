@@ -11,9 +11,9 @@
     "test:headless": "concurrently \"next dev\" \"cypress run\""
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.35.3",
+    "@tanstack/react-query": "^5.4.3",
     "apisauce": "^3.0.1",
-    "next": "13.5.2",
+    "next": "14.0.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,17 +22,17 @@
     "react-use": "^17.4.0"
   },
   "devDependencies": {
-    "@types/node": "20.6.4",
-    "@types/react": "18.2.22",
-    "@types/react-dom": "18.2.7",
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
     "autoprefixer": "^10.4.16",
-    "concurrently": "^8.2.1",
-    "cypress": "^13.2.0",
-    "eslint": "8.50.0",
-    "eslint-config-next": "13.5.2",
-    "postcss": "^8.4.30",
+    "concurrently": "^8.2.2",
+    "cypress": "^13.3.3",
+    "eslint": "8.52.0",
+    "eslint-config-next": "14.0.0",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.3.5",
     "typescript": "5.2.2"
   }
 }
