@@ -1,3 +1,5 @@
+'use client';
+
 import { GetServerSidePropsContext, NextPage } from 'next';
 import { getCountryByCodeService, getCountryByNameService, ICountry } from '../services';
 import Button from '../components/Button';
