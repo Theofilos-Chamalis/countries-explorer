@@ -6,25 +6,39 @@ import SearchInput from '../components/SearchInput';
 import { useQuery } from '@tanstack/react-query';
 import {
   ContinentsType,
+  ICountry,
   getAllCountriesService,
   getCountriesByContinentService,
 } from '../services';
 import Loading from '../components/Loading';
 import LazyLoad from 'react-lazy-load';
 
-const HomePage: NextPage = () => {
+interface HomePageProps {
+  allCountries: ICountry[] | undefined;
+}
+
+// Use getStaticProps to fetch data from the API while on the server (build time or ISR)
+// to avoid the need for the client to fetch the data. This is used to showcase the
+// ISR (Incremental Static Regeneration) approach which in this page does not require
+// the client to fetch the data so no loading state is shown initially.
+export const getStaticProps = async () => {
+  // Retrieve all countries from the API
+  const allCountriesData = await getAllCountriesService();
+
+  const allCountries = allCountriesData?.data;
+
+  return {
+    props: {
+      allCountries,
+    },
+    revalidate: 60,
+  };
+};
+
+const HomePage: NextPage<HomePageProps> = ({ allCountries }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<ContinentsType | ''>('');
   const [searchValue, setSearchValue] = useState('');
-  // Fetch all countries using React-Query and the getAllCountriesService service when
-  // the component/page mounts. This approach is used to showcase CSR (Client Side Rendering)
-  // and handling of errors/loading states. Also, react-query is configured to refetch from the
-  // API when the window is refocused which might be useful in some cases.
-  const {
-    fetchStatus: fetchStatusAllCountries,
-    error: errorAllCountries,
-    data: dataAllCountries,
-  } = useQuery({ queryKey: ['all-countries'], queryFn: () => getAllCountriesService() });
   // Fetch all countries by region/continent using React-Query and the getCountriesByContinentService service when
   // there is a filter selected from the Dropdown component.
   const {
@@ -40,16 +54,11 @@ const HomePage: NextPage = () => {
   // Function which renders the countries card grid and handles cases
   // where there is no data, an error, or the API calls are loading.
   const renderCountryCards = () => {
-    if (fetchStatusAllCountries === 'fetching' || fetchStatusCountriesByRegion === 'fetching') {
+    if (fetchStatusCountriesByRegion === 'fetching') {
       return <Loading />;
     }
 
-    if (
-      errorAllCountries ||
-      dataAllCountries?.ok === false ||
-      errorCountriesByRegion ||
-      dataCountriesByRegion?.ok === false
-    ) {
+    if (!allCountries || errorCountriesByRegion || dataCountriesByRegion?.ok === false) {
       return (
         <p className='flex h-screen w-full justify-center content-center text-xl font-nunito-regular'>
           Error while retrieving country data...
@@ -58,9 +67,7 @@ const HomePage: NextPage = () => {
     }
 
     const countriesFromApi =
-      selectedFilter && selectedFilter !== 'Show All'
-        ? dataCountriesByRegion?.data
-        : dataAllCountries?.data;
+      selectedFilter && selectedFilter !== 'Show All' ? dataCountriesByRegion?.data : allCountries;
 
     const filteredCountries = countriesFromApi?.filter(country =>
       country.name.toLowerCase().includes(searchValue.toLowerCase()),

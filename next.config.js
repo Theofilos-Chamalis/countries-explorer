@@ -18,6 +18,9 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  experimental: {
+    largePageDataBytes: 10000 * 200, // 2mb
+  },
 };
 
 module.exports = nextConfig;
